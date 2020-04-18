@@ -90,7 +90,7 @@ jobs:
            #docker push pierdobauce.ddns.net:5000/extract
  
       - run:
-         name: create zk images and push them
+         name: create kafka images and push them
          command: |
             docker buildx build --platform linux/amd64,linux/arm,linux/arm64 -f Dockerfile --push -t sarmand.ddns.net:5000/kafka:2.4.1 .
 

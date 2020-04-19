@@ -38,6 +38,8 @@ RUN apk add --no-cache bash curl jq docker \
 
 COPY overrides /opt/overrides
 
+EXPOSE 9292
+
 VOLUME ["/kafka"]
 
 # Use "exec" form so that it runs as PID 1 (useful for graceful shutdown)

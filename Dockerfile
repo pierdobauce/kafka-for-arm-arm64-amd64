@@ -37,10 +37,13 @@ RUN apk add --no-cache bash curl jq docker \
  && rm glibc-${GLIBC_VERSION}.apk
 
 COPY overrides /opt/overrides
+COPY entrypoint.sh /
 
 EXPOSE 9292
 
 VOLUME ["/kafka"]
 
 # Use "exec" form so that it runs as PID 1 (useful for graceful shutdown)
-CMD ["export KAFKA_LISTENERS=K3STEST://$MY_POD_IP:9292 && export KAFKA_LISTENER_SECURITY_PROTOCOL_MAP=K3STEST:PLAINTEXT && export KAFKA_INTER_BROKER_LISTENER_NAME=K3STEST && start-kafka.sh"]
+#CMD ["start-kafka.sh"]
+CMD ["./entrypoint.sh"]
+

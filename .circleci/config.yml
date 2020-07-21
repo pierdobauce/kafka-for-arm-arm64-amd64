@@ -85,14 +85,14 @@ jobs:
          name: Connecting to my own insecure registry
          command: |
            #docker image list
-           docker login -u pierdo -p pierd0 sarmand.ddns.net:5000
+           docker login -u pierdo -p pierd0 piedobauce.ddns.net:5000
            #docker image tag extract pierdobauce.ddns.net:5000/extract
            #docker push pierdobauce.ddns.net:5000/extract
  
       - run:
          name: create kafka images and push them
          command: |
-            docker buildx build --platform linux/amd64,linux/arm,linux/arm64,linux/386 -f Dockerfile --push -t sarmand.ddns.net:5000/kafka:2.4.1 .
+            docker buildx build --platform linux/amd64,linux/arm,linux/arm64,linux/386 -f Dockerfile --push -t pierdobauce.ddns.net:5000/kafka:2.4.1 .
 
 
             
